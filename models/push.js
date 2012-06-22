@@ -1,3 +1,7 @@
+var async       = require('async')
+  , request     = require('request')
+  , querystring = require('querystring');
+
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
@@ -10,15 +14,25 @@ var Push = new mongoose.Schema({}); // no schema, store whatever Github sends us
 /**
  * Generates individual commits from a Push object
  */
-Push.methods.generateCommits = function (callback) {
-  var thisCommits = this.get('commits');
+Push.methods.getCommits = function (callback) {
+  var pushCommits = this.get('commits');
   var commits = [];
 
-  for (var i=0; i < thisCommits.length; i++) {
-  	commits.push(new Commit(thisCommits[i]));
-  }
-
-  callback(commits);
+  async.forEachSeries(
+    pushCommits, 
+    function(pushCommit, done) {
+      // retrieve the full commit via the Github API
+      var url = pushCommit.url.replace('https://github.com', 'https://api.github.com/repos').replace('/commit/', '/commits/');
+      url += '?' + querystring.stringify({ access_token: process.env.GITHUB_ACCESS_TOKEN });
+      request.get(url, function (err, res, body) {
+        commits.push(new Commit(JSON.parse(body)));
+        done();
+      });
+    },
+    function(err) {
+      callback(commits);
+    }
+  );
 
   return this;
 };

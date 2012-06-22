@@ -14,25 +14,30 @@ describe('Push Model', function(){
       sinon.stub(mongoose.Model.prototype, 'save', function(callback) {
         callback(this);
       });
+      // Stub request
+      sinon.stub(request, 'get', function(url, callback) {
+        callback(null, {}, JSON.stringify(require("./mocks/commit.json")));
+      });
       done();
     });
     
   afterEach(function(done) {
     // clean up our stubs
     mongoose.Model.prototype.save.restore();
+    request.get.restore();
     done();
   });
   
-  describe('.generateCommits()', function() {  
+  describe('.getCommits()', function() {  
     it("create individual commits from the push", function(done) {
       var payload = require("./mocks/payload.json");
       var push = new Push(payload);
 
-      push.should.have.property('generateCommits');
+      push.should.have.property('getCommits');
 
-      push.generateCommits(function(commits) {
+      push.getCommits(function(commits) {
         commits.length.should.equal(3);
-        commits[0].get('author').username.should.equal("bensheldon");
+        commits[0].get('author').login.should.equal("bensheldon");
         done();
       });
     });
@@ -40,7 +45,7 @@ describe('Push Model', function(){
       var payload = require("./mocks/payload.json");
       var push = new Push(payload);
 
-      push.generateCommits( function(commits) {} ).should.have.property('save');
+      push.getCommits( function(commits) {} ).should.have.property('save');
       done();
     });
   });    

@@ -1,0 +1,57 @@
+{
+    "author": {
+        "gravatar_id": "0a760b6486d32a6ca54cad49210fdf49",
+        "login": "bensheldon",
+        "avatar_url": "https://secure.gravatar.com/avatar/0a760b6486d32a6ca54cad49210fdf49?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+        "id": 47554,
+        "url": "https://api.github.com/users/bensheldon"
+    },
+    "commit": {
+        "tree": {
+            "sha": "02f51969b36190e8e6b48df996e8c43cf76cb027",
+            "url": "https://api.github.com/repos/codeforamerica/flying_chicken/git/trees/02f51969b36190e8e6b48df996e8c43cf76cb027"
+        },
+        "author": {
+            "email": "bensheldon@gmail.com",
+            "name": "Ben Sheldon",
+            "date": "2012-06-22T11:47:38-07:00"
+        },
+        "message": "Added an Egg to push commits to synstats.herokuapp.com",
+        "committer": {
+            "email": "bensheldon@gmail.com",
+            "name": "Ben Sheldon",
+            "date": "2012-06-22T11:47:38-07:00"
+        },
+        "url": "https://api.github.com/repos/codeforamerica/flying_chicken/git/commits/818e2d1a703422167a7a23d81e81050c6d3bcadf"
+    },
+    "committer": {
+        "gravatar_id": "0a760b6486d32a6ca54cad49210fdf49",
+        "login": "bensheldon",
+        "avatar_url": "https://secure.gravatar.com/avatar/0a760b6486d32a6ca54cad49210fdf49?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+        "id": 47554,
+        "url": "https://api.github.com/users/bensheldon"
+    },
+    "stats": {
+        "additions": 2,
+        "deletions": 1,
+        "total": 3
+    },
+    "sha": "818e2d1a703422167a7a23d81e81050c6d3bcadf",
+    "files": [{
+        "filename": "config.yml",
+        "sha": "818e2d1a703422167a7a23d81e81050c6d3bcadf",
+        "changes": 3,
+        "raw_url": "https://github.com/codeforamerica/flying_chicken/raw/818e2d1a703422167a7a23d81e81050c6d3bcadf/config.yml",
+        "deletions": 1,
+        "blob_url": "https://github.com/codeforamerica/flying_chicken/blob/818e2d1a703422167a7a23d81e81050c6d3bcadf/config.yml",
+        "status": "modified",
+        "additions": 2,
+        "patch": "@@ -10,4 +10,5 @@\n   # Associative array, key is arbitrary\n   eggs:\n     commitalization: http://commits.codeforamerica.org/committed\n-    office_chicken: http://173.228.102.131:6178/receive_commit\n\\ No newline at end of file\n+    office_chicken: http://173.228.102.131:6178/receive_commit\n+    synstats: http://synstats.herokuapp.com/commithook\n\\ No newline at end of file"
+    }],
+    "parents": [{
+        "url": "https://api.github.com/repos/codeforamerica/flying_chicken/commits/54bba782431a8e134b7133c75b94201c326bc7c9",
+        "sha": "54bba782431a8e134b7133c75b94201c326bc7c9"
+    }],
+    "url": "https://api.github.com/repos/codeforamerica/flying_chicken/commits/818e2d1a703422167a7a23d81e81050c6d3bcadf",
+    "_id": "4fe4f2915e548d0000000002"
+}
