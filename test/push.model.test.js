@@ -23,13 +23,24 @@ describe('Push Model', function(){
     done();
   });
   
-  describe('.saveCommits()', function() {  
-    it("saves individual commits from the push", function(done) {
+  describe('.generateCommits()', function() {  
+    it("create individual commits from the push", function(done) {
       var payload = require("./mocks/payload.json");
       var push = new Push(payload);
 
-      push.should.have.property('saveCommits');
+      push.should.have.property('generateCommits');
 
+      push.generateCommits(function(commits) {
+        commits.length.should.equal(3);
+        commits[0].get('author').username.should.equal("bensheldon");
+        done();
+      });
+    });
+    it("returns the original Push object", function(done) {
+      var payload = require("./mocks/payload.json");
+      var push = new Push(payload);
+
+      push.generateCommits( function(commits) {} ).should.have.property('save');
       done();
     });
   });    
