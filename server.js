@@ -14,7 +14,7 @@ else {
   console.log("missing MONGOHQ environment variable. see sample.env");
 }
 mongoose.connect(MONGOHQ);
-var Commit = require('./models/commit.js');
+var Push = require('./models/push.js');
 
 // Express Configuration
 app.configure(function(){
@@ -36,8 +36,8 @@ app.configure('production', function(){
   io.set('log level', 1); // reduce logging
 });
 
-//app.get('/', require('./routes/index'));
-app.post('/commithook', require('./routes/commithook'));
+app.get('/', require('./routes/index'));
+app.post('/posthook', require('./routes/posthook'));
 
 app.listen(PORT, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
