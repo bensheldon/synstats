@@ -37,6 +37,7 @@ describe('Push Model', function(){
 
       push.getCommits(function(commits) {
         commits.length.should.equal(3);
+        request.get.callCount.should.equal(3); // should call request.get() 3 times (once for each commit)
         commits[0].get('author').login.should.equal("bensheldon");
         done();
       });

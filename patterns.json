@@ -1,0 +1,10 @@
+{
+	"curly_open" : {
+		"name" : "{",
+		"pattern" : "{" 
+	},
+	"curly_close" : {
+		"name": "}",
+		"pattern" : "}"
+	}
+}

@@ -30,6 +30,7 @@ Push.methods.getCommits = function (callback) {
       });
     },
     function(err) {
+      console.log("Saved", commits.length, "commits.");
       callback(commits);
     }
   );
