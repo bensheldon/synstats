@@ -1,57 +1,136 @@
 {
-    "author": {
-        "gravatar_id": "0a760b6486d32a6ca54cad49210fdf49",
-        "login": "bensheldon",
-        "avatar_url": "https://secure.gravatar.com/avatar/0a760b6486d32a6ca54cad49210fdf49?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
-        "id": 47554,
-        "url": "https://api.github.com/users/bensheldon"
-    },
-    "commit": {
-        "tree": {
-            "sha": "02f51969b36190e8e6b48df996e8c43cf76cb027",
-            "url": "https://api.github.com/repos/codeforamerica/flying_chicken/git/trees/02f51969b36190e8e6b48df996e8c43cf76cb027"
-        },
-        "author": {
-            "email": "bensheldon@gmail.com",
-            "name": "Ben Sheldon",
-            "date": "2012-06-22T11:47:38-07:00"
-        },
-        "message": "Added an Egg to push commits to synstats.herokuapp.com",
-        "committer": {
-            "email": "bensheldon@gmail.com",
-            "name": "Ben Sheldon",
-            "date": "2012-06-22T11:47:38-07:00"
-        },
-        "url": "https://api.github.com/repos/codeforamerica/flying_chicken/git/commits/818e2d1a703422167a7a23d81e81050c6d3bcadf"
-    },
+    "parents": [
+    {
+        "url": "https://api.github.com/repos/codeforamerica/synstats/commits/193dd3c99633b62ab5a20ddb4f49cf60685c19d8",
+        "sha": "193dd3c99633b62ab5a20ddb4f49cf60685c19d8"
+    }],
     "committer": {
-        "gravatar_id": "0a760b6486d32a6ca54cad49210fdf49",
         "login": "bensheldon",
+        "gravatar_id": "0a760b6486d32a6ca54cad49210fdf49",
+        "url": "https://api.github.com/users/bensheldon",
         "avatar_url": "https://secure.gravatar.com/avatar/0a760b6486d32a6ca54cad49210fdf49?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
-        "id": 47554,
-        "url": "https://api.github.com/users/bensheldon"
+        "id": 47554
     },
     "stats": {
-        "additions": 2,
-        "deletions": 1,
-        "total": 3
+        "deletions": 12,
+        "total": 46,
+        "additions": 34
     },
-    "sha": "818e2d1a703422167a7a23d81e81050c6d3bcadf",
-    "files": [{
-        "filename": "config.yml",
-        "sha": "818e2d1a703422167a7a23d81e81050c6d3bcadf",
-        "changes": 3,
-        "raw_url": "https://github.com/codeforamerica/flying_chicken/raw/818e2d1a703422167a7a23d81e81050c6d3bcadf/config.yml",
-        "deletions": 1,
-        "blob_url": "https://github.com/codeforamerica/flying_chicken/blob/818e2d1a703422167a7a23d81e81050c6d3bcadf/config.yml",
+    "commit": {
+        "committer": {
+            "date": "2012-06-22T16:37:12-07:00",
+            "name": "Ben Sheldon",
+            "email": "bensheldon@gmail.com"
+        },
+        "message": "Cleaned up code and made space for our pattern matching code.",
+        "url": "https://api.github.com/repos/codeforamerica/synstats/git/commits/c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "tree": {
+            "sha": "4d20da6d07158cfcc99d3a0271867c9b0bf16b60",
+            "url": "https://api.github.com/repos/codeforamerica/synstats/git/trees/4d20da6d07158cfcc99d3a0271867c9b0bf16b60"
+        },
+        "author": {
+            "date": "2012-06-22T16:37:12-07:00",
+            "name": "Ben Sheldon",
+            "email": "bensheldon@gmail.com"
+        }
+    },
+    "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+    "files": [
+    {
+        "additions": 6,
+        "blob_url": "https://github.com/codeforamerica/synstats/blob/c51377de517f98e36d899f30c3e1023c3cc1b99c/models/commit.js",
+        "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "raw_url": "https://github.com/codeforamerica/synstats/raw/c51377de517f98e36d899f30c3e1023c3cc1b99c/models/commit.js",
+        "patch": "@@ -2,6 +2,12 @@ var mongoose = require('mongoose'),\n     Schema = mongoose.Schema,\n     ObjectId = Schema.ObjectId;\n \n+var Patterns = require('../patterns.json');\n+\n var Commit = new mongoose.Schema({}); // no schema, store whatever Github sends us\n \n+Commit.methods.countPatterns = function (callback) {\n+\n+}\n+\n module.exports = mongoose.model('Commit', Commit);\n\\ No newline at end of file",
         "status": "modified",
-        "additions": 2,
-        "patch": "@@ -10,4 +10,5 @@\n   # Associative array, key is arbitrary\n   eggs:\n     commitalization: http://commits.codeforamerica.org/committed\n-    office_chicken: http://173.228.102.131:6178/receive_commit\n\\ No newline at end of file\n+    office_chicken: http://173.228.102.131:6178/receive_commit\n+    synstats: http://synstats.herokuapp.com/commithook\n\\ No newline at end of file"
+        "changes": 6,
+        "filename": "models/commit.js",
+        "deletions": 0
+    },
+    {
+        "additions": 1,
+        "blob_url": "https://github.com/codeforamerica/synstats/blob/c51377de517f98e36d899f30c3e1023c3cc1b99c/models/push.js",
+        "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "raw_url": "https://github.com/codeforamerica/synstats/raw/c51377de517f98e36d899f30c3e1023c3cc1b99c/models/push.js",
+        "patch": "@@ -30,6 +30,7 @@ Push.methods.getCommits = function (callback) {\n       });\n     },\n     function(err) {\n+      console.log(\"Saved\", commits.length, \"commits.\");\n       callback(commits);\n     }\n   );",
+        "status": "modified",
+        "changes": 1,
+        "filename": "models/push.js",
+        "deletions": 0
+    },
+    {
+        "additions": 10,
+        "blob_url": "https://github.com/codeforamerica/synstats/blob/c51377de517f98e36d899f30c3e1023c3cc1b99c/patterns.json",
+        "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "raw_url": "https://github.com/codeforamerica/synstats/raw/c51377de517f98e36d899f30c3e1023c3cc1b99c/patterns.json",
+        "patch": "@@ -0,0 +1,10 @@\n+{\n+\t\"curly_open\" : {\n+\t\t\"name\" : \"{\",\n+\t\t\"pattern\" : \"{\" \n+\t},\n+\t\"curly_close\" : {\n+\t\t\"name\": \"}\",\n+\t\t\"pattern\" : \"}\"\n+\t}\n+}\n\\ No newline at end of file",
+        "status": "added",
+        "changes": 10,
+        "filename": "patterns.json",
+        "deletions": 0
+    },
+    {
+        "additions": 8,
+        "blob_url": "https://github.com/codeforamerica/synstats/blob/c51377de517f98e36d899f30c3e1023c3cc1b99c/routes/posthook.js",
+        "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "raw_url": "https://github.com/codeforamerica/synstats/raw/c51377de517f98e36d899f30c3e1023c3cc1b99c/routes/posthook.js",
+        "patch": "@@ -5,8 +5,14 @@ var Push = require('../models/push.js');\n module.exports = function(req, res) {\n   // store whatever github sends us\n   var push = new Push( JSON.parse(req.body.payload) );\n-  push.retrieveCommits(function(commits) {\n-  \t// do something with the commits\n+  push.getCommits(function(commits) {\n+    // do something with the commits\n+    commits.map(function(commit) {\n+      // TODO: our pattern matching.counting\n+\n+      // save them\n+      commit.save();\n+    });\n   });\n   push.save();\n ",
+        "status": "modified",
+        "changes": 10,
+        "filename": "routes/posthook.js",
+        "deletions": 2
+    },
+    {
+        "additions": 0,
+        "blob_url": "https://github.com/codeforamerica/synstats/blob/193dd3c99633b62ab5a20ddb4f49cf60685c19d8/syntax.json",
+        "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "raw_url": "https://github.com/codeforamerica/synstats/raw/193dd3c99633b62ab5a20ddb4f49cf60685c19d8/syntax.json",
+        "patch": "@@ -1 +0,0 @@\n-{}\n\\ No newline at end of file",
+        "status": "removed",
+        "changes": 1,
+        "filename": "syntax.json",
+        "deletions": 1
+    },
+    {
+        "additions": 8,
+        "blob_url": "https://github.com/codeforamerica/synstats/blob/c51377de517f98e36d899f30c3e1023c3cc1b99c/test/patterns.test.js",
+        "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "raw_url": "https://github.com/codeforamerica/synstats/raw/c51377de517f98e36d899f30c3e1023c3cc1b99c/test/patterns.test.js",
+        "patch": "@@ -0,0 +1,8 @@\n+describe('patterns.json', function() {\n+  var patterns = require('../patterns');\n+  \n+  it('is a valid json doc', function(done) {\n+    patterns.should.be.a('object');\n+    done();\n+  });  \n+});\n\\ No newline at end of file",
+        "status": "added",
+        "changes": 8,
+        "filename": "test/patterns.test.js",
+        "deletions": 0
+    },
+    {
+        "additions": 1,
+        "blob_url": "https://github.com/codeforamerica/synstats/blob/c51377de517f98e36d899f30c3e1023c3cc1b99c/test/push.model.test.js",
+        "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "raw_url": "https://github.com/codeforamerica/synstats/raw/c51377de517f98e36d899f30c3e1023c3cc1b99c/test/push.model.test.js",
+        "patch": "@@ -37,6 +37,7 @@ describe('Push Model', function(){\n \n       push.getCommits(function(commits) {\n         commits.length.should.equal(3);\n+        request.get.callCount.should.equal(3); // should call request.get() 3 times (once for each commit)\n         commits[0].get('author').login.should.equal(\"bensheldon\");\n         done();\n       });",
+        "status": "modified",
+        "changes": 1,
+        "filename": "test/push.model.test.js",
+        "deletions": 0
+    },
+    {
+        "additions": 0,
+        "blob_url": "https://github.com/codeforamerica/synstats/blob/193dd3c99633b62ab5a20ddb4f49cf60685c19d8/test/syntax.test.js",
+        "sha": "c51377de517f98e36d899f30c3e1023c3cc1b99c",
+        "raw_url": "https://github.com/codeforamerica/synstats/raw/193dd3c99633b62ab5a20ddb4f49cf60685c19d8/test/syntax.test.js",
+        "patch": "@@ -1,9 +0,0 @@\n-\n-describe('syntax.json', function(){\n-  var endpoints = require('../syntax');\n-  \n-  it('is a valid json doc',  function(done) {\n-    endpoints.should.be.a('object');\n-    done();\n-  });  \n-})\n\\ No newline at end of file",
+        "status": "removed",
+        "changes": 9,
+        "filename": "test/syntax.test.js",
+        "deletions": 9
     }],
-    "parents": [{
-        "url": "https://api.github.com/repos/codeforamerica/flying_chicken/commits/54bba782431a8e134b7133c75b94201c326bc7c9",
-        "sha": "54bba782431a8e134b7133c75b94201c326bc7c9"
-    }],
-    "url": "https://api.github.com/repos/codeforamerica/flying_chicken/commits/818e2d1a703422167a7a23d81e81050c6d3bcadf",
-    "_id": "4fe4f2915e548d0000000002"
+    "author": {
+        "login": "bensheldon",
+        "gravatar_id": "0a760b6486d32a6ca54cad49210fdf49",
+        "url": "https://api.github.com/users/bensheldon",
+        "avatar_url": "https://secure.gravatar.com/avatar/0a760b6486d32a6ca54cad49210fdf49?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-140.png",
+        "id": 47554
+    },
+    "url": "https://api.github.com/repos/codeforamerica/synstats/commits/c51377de517f98e36d899f30c3e1023c3cc1b99c",
+    "_id": "4fe502b10efb1c0200000004"
 }
