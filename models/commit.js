@@ -9,6 +9,10 @@ var patterns = require('../patterns.json');
 
 var Commit = new mongoose.Schema({}); // no schema, store whatever Github sends us
 
+Commit.index({ sha: 1 }, { unique: true })
+
+
+
 Commit.methods.countPatterns = function () {
   var files = this.get('files');
   var patches = [];

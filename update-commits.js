@@ -49,3 +49,12 @@ async.whilst(
       process.exit();
     }
 );
+
+
+// Kill our process if goes too long
+var MAXTIME = 120000; // 2 minutes
+setTimeout(
+  function(){ 
+    console.log('Killed collector for running longer than', MAXTIME/1000, 'seconds!');
+    process.exit();
+  }, MAXTIME); // kill after 2 minutes
