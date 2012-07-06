@@ -1,10 +1,12 @@
 {
 	"curly_open" : {
 		"name" : "{",
-		"pattern" : "{" 
+		"friendlyName": "Opened Curlies",
+    "pattern": "\\{"
 	},
 	"curly_close" : {
 		"name": "}",
-		"pattern" : "}"
+    "friendlyName": "Closed Curlies",
+		"pattern" : "\\}"
 	}
 }

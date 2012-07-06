@@ -8,10 +8,8 @@ module.exports = function(req, res) {
   push.getCommits(function(commits) {
     // do something with the commits
     commits.map(function(commit) {
-      // TODO: our pattern matching.counting
-
-      // save them
-      commit.save();
+      // pattern matching and counting; then save
+      commit.countPatterns().save();
     });
   });
   push.save();
