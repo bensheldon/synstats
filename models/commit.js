@@ -13,7 +13,18 @@ Commit.methods.countPatterns = function () {
   var files = this.get('files');
   var patches = [];
   if (util.isArray(files)) {
-    var patches = files.map(function(file) { return file.patch; });
+    for(var i=0; i < files.length; i++) {
+      switch(files[i].status) {
+        case 'added':
+        case 'deleted':
+          break;
+        case 'modified':
+          if (files[i].patch) {
+            patches.push(files[i].patch);
+          }
+          break;
+      }
+    }
     this.set('patterns', patchPatterns(patches));
   }
   return this;
