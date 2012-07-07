@@ -7,6 +7,8 @@ var mongoose = require('mongoose'),
     ObjectId = Schema.ObjectId;
 
 var Commit = require('./commit.js');
+var AuthorCount = mongoose.model('AuthorCount');
+var DailyCount = mongoose.model('DailyCount');
 
 // postcommits may have multiple commits, so we split them out
 var Push = new mongoose.Schema({}); // no schema, store whatever Github sends us
@@ -39,6 +41,8 @@ Push.methods.getCommits = function (callback) {
     },
     function(err) {
       console.log("Saved", commits.length, "commits.");
+      AuthorCount.generate();
+      DailyCount.generate();
       callback(commits);
     }
   );

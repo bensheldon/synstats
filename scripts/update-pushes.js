@@ -48,6 +48,7 @@ async.whilst(
     },
     function (err) {
       console.log('All pushes have been updated');
+      // TODO: Make sure our commits also get updated!
     }
 );
 

@@ -8,8 +8,11 @@ var mongoose = require('mongoose'),
 
 mongoose.connect(process.env.MONGOHQ);
 
+var AuthorCount = require('./models/AuthorCount.js');
+var DailyCount = require('./models/DailyCount.js');
 
 var Commit = require('./models/commit.js');
+var AuthorCount = require('./models/AuthorCount.js');
 
 
 var more = true;
@@ -46,6 +49,8 @@ async.whilst(
     },
     function (err) {
       console.log('All commits have been updated');
+      AuthorCount.generate();
+      DailyCount.generate();
       process.exit();
     }
 );

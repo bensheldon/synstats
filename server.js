@@ -14,10 +14,11 @@ else {
   console.log("missing MONGOHQ environment variable. see sample.env");
 }
 mongoose.connect(MONGOHQ);
-var Push = require('./models/push.js');
-var Commit = require('./models/commit.js');
+
 var DailyCount = require('./models/dailycount.js');
 var AuthorCount = require('./models/authorcount.js');
+var Push = require('./models/push.js');
+var Commit = require('./models/commit.js');
 
 // Express Configuration
 app.configure(function(){
