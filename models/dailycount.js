@@ -20,8 +20,9 @@ DailyCount.statics.generate = function (callback) {
   } 
 
   var reduceFunction = function(key, values) {
-    var patterns = values.shift().patterns;
-    var commits = 0;
+    var date = values[0].date;
+    var commits = values[0].commits;
+    var patterns = values.shift().patterns; // shift it off!
 
     values.forEach(function(value) {
       commits += value.commits;
@@ -33,7 +34,7 @@ DailyCount.statics.generate = function (callback) {
       }
     });
 
-    return {"date": values[0].date, "commits": commits, "patterns": patterns};
+    return {"date": date, "commits": commits, "patterns": patterns};
   };
 
   Commit.collection.mapReduce(

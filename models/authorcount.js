@@ -19,20 +19,22 @@ AuthorCount.statics.generate = function generate(callback) {
   } 
 
   var reduceFunction = function(key, values) {
-    var patterns = values.shift().patterns;
-    var commits = 0;
+    var author = values[0].author;
+    var commits = values[0].commits;
+    var patterns = values.shift().patterns; // shift it off!
 
     values.forEach(function(value) {
       commits += value.commits;
 
       for (var pattern in patterns) {
+
         patterns[pattern].counts.added += value.patterns[pattern].counts.added;
         patterns[pattern].counts.removed += value.patterns[pattern].counts.removed;
         patterns[pattern].counts.delta += value.patterns[pattern].counts.delta;
       }
     });
 
-    return {"author": values[0].author, "commits": commits, "patterns": patterns};
+    return {"author": author, "commits": commits, "patterns": patterns};
   };
 
   Commit.collection.mapReduce(
