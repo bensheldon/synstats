@@ -41,8 +41,8 @@ Push.methods.getCommits = function (callback) {
     },
     function(err) {
       console.log("Saved", commits.length, "commits.");
-      AuthorCount.generate();
-      DailyCount.generate();
+      AuthorCount.generate(function(err, results) {});
+      DailyCount.generate(function(err, results) {});
       callback(commits);
     }
   );

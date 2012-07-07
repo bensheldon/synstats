@@ -10,7 +10,7 @@ var Commit = require('./commit.js');
 
 var AuthorCount = new mongoose.Schema({}); 
 
-AuthorCount.statics.generate = function (callback) {
+AuthorCount.statics.generate = function generate(callback) {
 
   var mapFunction = function() { //map function
     if (this.author) {
