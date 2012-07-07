@@ -12,6 +12,8 @@ div.row-fluid
           th { Curlies Opened
           th Curlies Closed }
           th Curly Balance
+          th Functional Syntax
+          th TODOs
           th Total Commits
       tbody
         - each authorCount in authorCounts
@@ -26,6 +28,10 @@ div.row-fluid
               = authorCount.value.patterns.curly_close.counts.delta
             td
               = authorCount.value.patterns.curly_open.counts.delta - authorCount.value.patterns.curly_close.counts.delta
+            td
+              = authorCount.value.patterns.functional.counts.delta
+            td
+              = authorCount.value.patterns.todo.counts.delta
             td
               = authorCount.value.commits
 
