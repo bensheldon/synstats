@@ -1,6 +1,10 @@
 div.row-fluid
-  div#info.span12.well 
-    strong Productivity based on <a href="http://en.wikipedia.org/wiki/Source_lines_of_code#Disadvantages">lines of code</a> is <em>so yesterday</em>. 
+  div#info.span12.well
+    strong Productivity based on <a href="http://en.wikipedia.org/wiki/Source_lines_of_code#Disadvantages">lines of code</a> is <em>so yesterday</em>.
+      | Count curlies, or use of functional programming (<em>map, reduce, each</em>), or <em>"TODO"</em> comments, 
+      | or <a href="https://github.com/codeforamerica/synstats/blob/master/patterns.json">whatever</a>.
+      | <br />
+    small Tracking commits from #{since.toDateString()} to #{until.toDateString()}
 
 div.row-fluid  
   div.span12
