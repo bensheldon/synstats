@@ -25,7 +25,15 @@ Push.methods.getCommits = function (callback) {
       var url = pushCommit.url.replace('https://github.com', 'https://api.github.com/repos').replace('/commit/', '/commits/');
       url += '?' + querystring.stringify({ access_token: process.env.GITHUB_ACCESS_TOKEN });
       request.get(url, function (err, res, body) {
-        commits.push(new Commit(JSON.parse(body)));
+        var commit = JSON.parse(body);
+        commits.push(new Commit({
+          sha     : commit.sha
+        , date    : new Date(commit.commit.author.date)
+        , author  : commit.author
+        , message : commit.commit.message
+        , url     : commit.commit.url
+        , files   : commit.files
+        }));
         done();
       });
     },

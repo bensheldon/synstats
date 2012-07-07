@@ -7,7 +7,15 @@ var util = require('util');
 var patchPatterns = require('../lib/patchpatterns')
 var patterns = require('../patterns.json');
 
-var Commit = new mongoose.Schema({}); // no schema, store whatever Github sends us
+var Commit = new mongoose.Schema({
+  sha     : String
+, date    : Date
+, author  : {}
+, message : String
+, url     : String
+, files   : []
+, patterns: {}
+});
 
 Commit.index({ sha: 1 }, { unique: true })
 
@@ -21,7 +29,6 @@ Commit.methods.countPatterns = function () {
       switch(files[i].status) {
         case 'added':
         case 'deleted':
-          break;
         case 'modified':
           if (files[i].patch) {
             patches.push(files[i].patch);
