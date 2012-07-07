@@ -1,4 +1,7 @@
-
+.brand strong {
+  font-weight: 200;
+  color: #ccc;
+}
 
 @media (min-width: 979px) {
   body {
