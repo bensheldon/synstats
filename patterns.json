@@ -2,11 +2,21 @@
 	"curly_open" : {
 		"name" : "{",
 		"friendlyName": "Opened Curlies",
-    "pattern": "\\{"
+		"pattern": "\\{"
 	},
 	"curly_close" : {
 		"name": "}",
-    "friendlyName": "Closed Curlies",
+		"friendlyName": "Closed Curlies",
 		"pattern" : "\\}"
+	},
+	"functional" : {
+		"name": "map, reduce, select, forEach, .each do |",
+		"friendlyName": "Functional Programming",
+		"pattern": "map|reduce|select|forEach|(\\.each do \\|)"
+	},
+	"todo" : {
+		"name": "TODO",
+		"friendlyName": "TODO",
+		"pattern": "todo|TODO"
 	}
 }
