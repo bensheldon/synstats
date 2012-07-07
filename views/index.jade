@@ -1,3 +1,35 @@
 div.row-fluid
   div#info.span12.well 
     strong Awesome statistics!
+
+
+div.row-fluid  
+  div.span12
+    table#committers.table.table-bordered.table-striped
+      thead
+        tr
+          th Avatar
+          th User
+          th { Curlies Opened
+          th Curlies Closed }
+          th Curly Balance
+          th Total Commits
+      tbody
+        - each authorCount in authorCounts
+          tr
+            td
+              img(src=authorCount.value.author['avatar_url'], width=25, height=25)
+            td
+              strong= authorCount.value.author.login
+            td
+              = authorCount.value.patterns.curly_open.counts.delta
+            td
+              = authorCount.value.patterns.curly_close.counts.delta
+            td
+              = authorCount.value.patterns.curly_open.counts.delta - authorCount.value.patterns.curly_close.counts.delta
+            td
+              = authorCount.value.commits
+
+//- - each dailyCount in dailyCounts
+//-   div.row-fluid
+//-     = JSON.stringify(dailyCount);

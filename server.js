@@ -15,6 +15,9 @@ else {
 }
 mongoose.connect(MONGOHQ);
 var Push = require('./models/push.js');
+var Commit = require('./models/commit.js');
+var DailyCount = require('./models/dailycount.js');
+var AuthorCount = require('./models/authorcount.js');
 
 // Express Configuration
 app.configure(function(){
