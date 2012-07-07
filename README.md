@@ -3,6 +3,13 @@ SynStats
 
 Collects statistics about code syntax structures.
 
+Updating `patterns.json`
+------------------------
+
+The curlies (and other patterns) are stored in `./patterns.json`. You can add more... just make sure to properly escape the string encoded regex.
+
+After you update the patterns, you should also run `node scripts/update-commits.js` (or `foreman run node scripts/update-commits.js`) in order to apply the patterns and update the daily/committer counts.
+
 Testing
 --------
 
